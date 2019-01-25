@@ -63,14 +63,14 @@ body {
   color: rgb(255, 255, 255);
   text-align: center;
 }
-.rain {
+.humidity {
   width: 50%;
   position: absolute;
   left: 10px;
   word-spacing: 60px;
   top: 3px;
 }
-.rain::before {
+.humidity::before {
   display: block;
   content: "\f04e";
   font-family: weathericons;

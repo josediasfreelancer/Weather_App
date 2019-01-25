@@ -1,27 +1,24 @@
 import React, { Component } from "react";
 import "./Weather.css";
 import PropTypes from "prop-types";
+//import Weathers from "./Weathers";
 
 class Weather extends Component {
   render() {
-    const { actualTemp, location, rain, wind } = this.props;
-
+    //properties for parameter values in state
+    const { main, name, weather, wind } = this.props.weather;
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-sm">
-            <div className="weatherCard my-2">
-              <div className="currentTemp">
-                <span className="temp">{actualTemp}&deg;</span>
-                <span className="location">{location}</span>
-              </div>
-              <div className="currentWeather">
-                <span className="conditions">&#xf00d;</span>
-                <div className="info">
-                  <span className="rain">{rain}</span>
-                  <span className="wind">{wind}</span>
-                </div>
-              </div>
+      <div className="col-sm">
+        <div className="weatherCard my-2">
+          <div className="currentTemp">
+            <span className="temp">{main.temp}&deg;</span>
+            <span className="location">{name} </span>
+          </div>
+          <div className="currentWeather">
+            <span className="conditions">&#xf00d;</span>
+            <div className="info">
+              <span className="humidity"> {main.humidity} %</span>
+              <span className="wind">{`${wind.speed} MPH`}</span>
             </div>
           </div>
         </div>
@@ -31,10 +28,7 @@ class Weather extends Component {
 }
 
 Weather.propTypes = {
-  actualTemp: PropTypes.string.isRequired,
-  location: PropTypes.string.isRequired,
-  rain: PropTypes.string.isRequired,
-  wind: PropTypes.string.isRequired
+  weather: PropTypes.object.isRequired
 };
 
 export default Weather;
