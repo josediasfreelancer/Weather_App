@@ -95,3 +95,8 @@ body {
   position: absolute;
   top: 5px;
 }
+
+.imageicon {
+  width: 75px;
+  height: auto;
+}

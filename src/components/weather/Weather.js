@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 class Weather extends Component {
   render() {
     //properties for parameter values in state
-    const { main, name, weather, wind } = this.props.weather;
+    const { main, name, wind, weather } = this.props.weather;
     return (
       <div className="col-sm">
         <div className="weatherCard my-2">
@@ -15,7 +15,14 @@ class Weather extends Component {
             <span className="location">{name} </span>
           </div>
           <div className="currentWeather">
-            <span className="conditions">&#xf00d;</span>
+            <span className="conditions">
+              <img
+                className="imageicon"
+                src={`http://openweathermap.org/img/w/${weather[0].icon}.png`}
+                alt="weather img"
+              />
+              {/* &#xf03d;{`&#xf${weather[0].icon};`} */}
+            </span>
             <div className="info">
               <span className="humidity"> {main.humidity} %</span>
               <span className="wind">{`${wind.speed} MPH`}</span>

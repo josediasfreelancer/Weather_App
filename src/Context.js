@@ -5,35 +5,7 @@ const Context = React.createContext();
 
 export class Provider extends Component {
   state = {
-    weathers: [
-      //   {
-      //     id: "1",
-      //     location: "Aveiro",
-      //     actualTemp: "23",
-      //     // minTemp: "20",
-      //     // maxTemp: "25",
-      //     rain: "1.3 MM",
-      //     wind: "10 MPH"
-      //   },
-      //   {
-      //     id: "2",
-      //     location: "Porto",
-      //     actualTemp: "21",
-      //     // minTemp: "18",
-      //     // maxTemp: "22",
-      //     rain: "2.4 MM",
-      //     wind: "5 MPH"
-      //   },
-      //   {
-      //     id: "3",
-      //     location: "Porto",
-      //     actualTemp: "21",
-      //     // minTemp: "18",
-      //     // maxTemp: "22",
-      //     rain: "2.4 MM",
-      //     wind: "5 MPH"
-      //   }
-    ]
+    weathers: []
   };
 
   //   componentDidMount() {
@@ -53,10 +25,9 @@ export class Provider extends Component {
       )
       .then(res => {
         this.setState({
-          weathers: res.data.list,
-          details: res.data.list[0].weather
+          weathers: res.data.list
         });
-        console.log({ weathers: res.data.list[0].weather });
+        //console.log({ weathers: res.data.list[0].weather[0].icon });
       });
   }
 
