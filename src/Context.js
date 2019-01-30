@@ -3,9 +3,34 @@ import axios from "axios";
 
 const Context = React.createContext();
 
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "DELETE_WEATHER":
+      return {
+        ...state,
+        weathers: state.weathers.filter(
+          weather => weather.id !== action.payload
+        )
+      };
+    case "SHOW_WEATHER":
+      return {
+        ...state,
+        weathers: state.weathers.filter(
+          weather => weather.name.toLowerCase() === action.payload,
+          console.log(action.payload)
+        )
+      };
+    default:
+      return state;
+  }
+};
+
 export class Provider extends Component {
   state = {
-    weathers: []
+    weathers: [],
+    dispatch: action => {
+      this.setState(state => reducer(state, action));
+    }
   };
 
   //   componentDidMount() {
